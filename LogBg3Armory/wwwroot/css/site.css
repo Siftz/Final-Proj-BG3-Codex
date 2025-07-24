@@ -1,0 +1,92 @@
+/* General page setup */
+body {
+  background: url('/images/starry flow.jpg') center center fixed;
+  background-size: cover;
+  background-color: #0c0b20;
+  color: #e0f2ff;
+  font-family: 'Merriweather', serif;
+  padding: 2rem;
+}
+
+/* Main heading */
+h2 {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 2.4rem;
+  color: #f6d900;
+  text-shadow: 2px 2px 4px #000;
+  margin-bottom: 1.5rem;
+}
+
+/* Item container grid */
+.codex-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /*  Five columns */
+  gap: 1.5rem;
+}
+
+/* Individual item block */
+.codex-entry {
+  background: url('/images/mystic scroll.jpg');
+  border-left: 5px solid #1a0a29;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 15px #0d051c;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover animation */
+.codex-entry:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 20px #ff6f91;
+}
+
+/* Item title */
+.codex-entry h3 {
+  font-family: 'Cinzel Decorative', cursive;
+  color: #87cefa;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 8px #2c2c5f;
+}
+
+/* Item details */
+.codex-entry p {
+  margin: 0.4rem 0;
+  line-height: 1.5;
+  color: #eae6da;
+}
+
+/* Lore text / descriptions */
+.codex-entry em {
+  color: #cbd6ff;
+  font-style: italic;
+  display: block;
+  margin-top: 1rem;
+  border-left: 3px solid #845ec2;
+  padding-left: 1rem;
+}
+
+/* Interactive button */
+button {
+  background-color: #845ec2;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: bold;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff6f91;
+}
+/* === Rarity Styles === */
+.rarity-common      { border-left: 6px solid #999; }
+.rarity-uncommon    { border-left: 6px solid #3fa34d; }
+.rarity-rare        { border-left: 6px solid #347fc4; }
+.rarity-very-rare   { border-left: 6px solid #a05ff7; }
+.rarity-legendary   {
+  border-left: 6px solid #f6d900;
+  box-shadow: 0 0 15px #f6d900;
+}

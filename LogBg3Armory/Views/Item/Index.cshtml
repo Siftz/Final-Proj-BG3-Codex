@@ -1,0 +1,39 @@
+@model IEnumerable<LogBg3Armory.Models.Item>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "BG3 Armory";
+}
+
+<h2>🧙 BG3 Armory</h2>
+
+<form method="get">
+    <input type="text" name="search" placeholder="Search items..." />
+    <button type="submit">Search</button>
+</form>
+
+<div class="codex-list">
+    @foreach (var item in Model)
+    {
+        var rarityClass = item.Rarity?.RarityName?.ToLowerInvariant() switch
+        {
+            "common" => "rarity-common",
+            "uncommon" => "rarity-uncommon",
+            "rare" => "rarity-rare",
+            "very rare" => "rarity-very-rare",
+            "legendary" => "rarity-legendary",
+            _ => ""
+        };
+
+        <div class="codex-entry @rarityClass">
+            <h3>@item.Name</h3>
+            <p><strong>Type:</strong> @item.Type?.TypeName</p>
+            <p><strong>Rarity:</strong> @item.Rarity?.RarityName</p>
+            <p><strong>Property:</strong> @item.Property?.PropertyName</p>
+            <p><strong>Location:</strong> @item.Location?.LocationName</p>
+            <p><strong>Act:</strong> @item.Act?.ActName</p>
+            <p><em>@item.Description?.Text</em></p>
+            <button>Add to Wardrobe</button>
+        </div>
+    }
+</div>

@@ -1,0 +1,431 @@
+@model LogBg3Armory.Models.LoadoutPageViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Character Loadout";
+}
+
+<h2>🧙 Character Equipment</h2>
+
+<div class="equipment-ui">
+    <!-- Character silhouette panel -->
+    <div class="character-panel" style="background-image: url('/images/character-silhouette.png');">
+        <div class="equipment-wrapper helmet">
+            <div class="equipment-slot">
+                <img src="/images/helmet.png" alt="Helmet icon" class="slot-icon" />
+                <div class="equipment-label">
+                    @Model.Loadout.EquippedHelmet?.Name "Helmet"
+                </div>
+            </div>
+            @if (Model.Loadout.EquippedHelmet != null)
+            {
+                <div class="equipment-popout">
+                    <h4>@Model.Loadout.EquippedHelmet.Name</h4>
+                    <p><strong>Type:</strong> @Model.Loadout.EquippedHelmet.Type?.TypeName</p>
+                    <p><strong>Rarity:</strong> @Model.Loadout.EquippedHelmet.Rarity?.RarityName</p>
+                    <p><strong>Property:</strong> @Model.Loadout.EquippedHelmet.Property?.PropertyName</p>
+                    <p><strong>Location:</strong> @Model.Loadout.EquippedHelmet.Location?.LocationName</p>
+                    <p><strong>Act:</strong> @Model.Loadout.EquippedHelmet.Act?.ActName</p>
+                    <em>@Model.Loadout.EquippedHelmet.Description?.Text</em>
+
+                    <form asp-action="UnequipItem" method="post">
+                        <input type="hidden" name="id" value="@Model.Loadout.EquippedHelmet.Id" />
+                        <button type="submit" class="unequip-button">Unequip</button>
+                    </form>
+                </div>
+            }
+        </div>
+
+        <div class="equipment-wrapper armour">
+            <div class="equipment-slot">
+                <img src="/images/armour.png" alt="Armour icon" class="slot-icon" />
+                <div class="equipment-label">
+                    @Model.Loadout.EquippedArmour?.Name "Armour"
+                </div>
+            </div>
+            @if (Model.Loadout.EquippedArmour != null)
+            {
+                <div class="equipment-popout">
+                    <h4>@Model.Loadout.EquippedArmour.Name</h4>
+                    <p><strong>Type:</strong> @Model.Loadout.EquippedArmour.Type?.TypeName</p>
+                    <p><strong>Rarity:</strong> @Model.Loadout.EquippedArmour.Rarity?.RarityName</p>
+                    <p><strong>Property:</strong> @Model.Loadout.EquippedArmour.Property?.PropertyName</p>
+                    <p><strong>Location:</strong> @Model.Loadout.EquippedArmour.Location?.LocationName</p>
+                    <p><strong>Act:</strong> @Model.Loadout.EquippedArmour.Act?.ActName</p>
+                    <em>@Model.Loadout.EquippedArmour.Description?.Text</em>
+
+                    <form asp-action="UnequipItem" method="post">
+                        <input type="hidden" name="id" value="@Model.Loadout.EquippedArmour.Id" />
+                        <button type="submit" class="unequip-button">Unequip</button>
+                    </form>
+                </div>
+            }
+        </div>
+
+        <div class="equipment-wrapper gloves">
+            <div class="equipment-slot">
+                <img src="/images/gloves.png" alt="Gloves icon" class="slot-icon" />
+                <div class="equipment-label">
+                    @Model.Loadout.EquippedGloves?.Name "Gloves"
+                </div>
+            </div>
+            @if (Model.Loadout.EquippedGloves != null)
+            {
+                <div class="equipment-popout">
+                    <h4>@Model.Loadout.EquippedGloves.Name</h4>
+                    <p><strong>Type:</strong> @Model.Loadout.EquippedGloves.Type?.TypeName</p>
+                    <p><strong>Rarity:</strong> @Model.Loadout.EquippedGloves.Rarity?.RarityName</p>
+                    <p><strong>Property:</strong> @Model.Loadout.EquippedGloves.Property?.PropertyName</p>
+                    <p><strong>Location:</strong> @Model.Loadout.EquippedGloves.Location?.LocationName</p>
+                    <p><strong>Act:</strong> @Model.Loadout.EquippedGloves.Act?.ActName</p>
+                    <em>@Model.Loadout.EquippedGloves.Description?.Text</em>
+
+                    <form asp-action="UnequipItem" method="post">
+                        <input type="hidden" name="id" value="@Model.Loadout.EquippedGloves.Id" />
+                        <button type="submit" class="unequip-button">Unequip</button>
+                    </form>
+                </div>
+            }
+        </div>
+
+        <div class="equipment-wrapper cloak">
+            <div class="equipment-slot">
+                <img src="/images/cloak.png" alt="Cloak icon" class="slot-icon" />
+                <div class="equipment-label">
+                    @Model.Loadout.EquippedCloak?.Name "Cloak"
+                </div>
+            </div>
+            @if (Model.Loadout.EquippedCloak != null)
+            {
+                <div class="equipment-popout">
+                    <h4>@Model.Loadout.EquippedCloak.Name</h4>
+                    <p><strong>Type:</strong> @Model.Loadout.EquippedCloak.Type?.TypeName</p>
+                    <p><strong>Rarity:</strong> @Model.Loadout.EquippedCloak.Rarity?.RarityName</p>
+                    <p><strong>Property:</strong> @Model.Loadout.EquippedCloak.Property?.PropertyName</p>
+                    <p><strong>Location:</strong> @Model.Loadout.EquippedCloak.Location?.LocationName</p>
+                    <p><strong>Act:</strong> @Model.Loadout.EquippedCloak.Act?.ActName</p>
+                    <em>@Model.Loadout.EquippedCloak.Description?.Text</em>
+
+                    <form asp-action="UnequipItem" method="post">
+                        <input type="hidden" name="id" value="@Model.Loadout.EquippedCloak.Id" />
+                        <button type="submit" class="unequip-button">Unequip</button>
+                    </form>
+                </div>
+            }
+        </div>
+
+        <div class="equipment-wrapper boots">
+            <div class="equipment-slot">
+                <img src="/images/boots.png" alt="Boots icon" class="slot-icon" />
+                <div class="equipment-label">
+                    @Model.Loadout.EquippedBoots?.Name "Boots"
+                </div>
+            </div>
+            @if (Model.Loadout.EquippedBoots != null)
+            {
+                <div class="equipment-popout">
+                    <h4>@Model.Loadout.EquippedBoots.Name</h4>
+                    <p><strong>Type:</strong> @Model.Loadout.EquippedBoots.Type?.TypeName</p>
+                    <p><strong>Rarity:</strong> @Model.Loadout.EquippedBoots.Rarity?.RarityName</p>
+                    <p><strong>Property:</strong> @Model.Loadout.EquippedBoots.Property?.PropertyName</p>
+                    <p><strong>Location:</strong> @Model.Loadout.EquippedBoots.Location?.LocationName</p>
+                    <p><strong>Act:</strong> @Model.Loadout.EquippedBoots.Act?.ActName</p>
+                    <em>@Model.Loadout.EquippedBoots.Description?.Text</em>
+
+                    <form asp-action="UnequipItem" method="post">
+                        <input type="hidden" name="id" value="@Model.Loadout.EquippedBoots.Id" />
+                        <button type="submit" class="unequip-button">Unequip</button>
+                    </form>
+                </div>
+            }
+        </div>
+
+        <div class="equipment-wrapper amulet">
+            <div class="equipment-slot">
+                <img src="/images/amulet.png" alt="Amulet icon" class="slot-icon" />
+                <div class="equipment-label">
+                    @Model.Loadout.EquippedAmulet?.Name "Amulet"
+                </div>
+            </div>
+            @if (Model.Loadout.EquippedAmulet != null)
+            {
+                <div class="equipment-popout">
+                    <h4>@Model.Loadout.EquippedAmulet.Name</h4>
+                    <p><strong>Type:</strong> @Model.Loadout.EquippedAmulet.Type?.TypeName</p>
+                    <p><strong>Rarity:</strong> @Model.Loadout.EquippedAmulet.Rarity?.RarityName</p>
+                    <p><strong>Property:</strong> @Model.Loadout.EquippedAmulet.Property?.PropertyName</p>
+                    <p><strong>Location:</strong> @Model.Loadout.EquippedAmulet.Location?.LocationName</p>
+                    <p><strong>Act:</strong> @Model.Loadout.EquippedAmulet.Act?.ActName</p>
+                    <em>@Model.Loadout.EquippedAmulet.Description?.Text</em>
+
+                    <form asp-action="UnequipItem" method="post">
+                        <input type="hidden" name="id" value="@Model.Loadout.EquippedAmulet.Id" />
+                        <button type="submit" class="unequip-button">Unequip</button>
+                    </form>
+                </div>
+            }
+        </div>
+
+        <div class="equipment-wrapper ring1">
+            <div class="equipment-slot">
+                <img src="/images/ring.png" alt="Ring 1 icon" class="slot-icon" />
+                <div class="equipment-label">
+                    @Model.Loadout.EquippedRing1?.Name "Ring 1"
+                </div>
+            </div>
+            @if (Model.Loadout.EquippedRing1 != null)
+            {
+                <div class="equipment-popout">
+                    <h4>@Model.Loadout.EquippedRing1.Name</h4>
+                    <p><strong>Type:</strong> @Model.Loadout.EquippedRing1.Type?.TypeName</p>
+                    <p><strong>Rarity:</strong> @Model.Loadout.EquippedRing1.Rarity?.RarityName</p>
+                    <p><strong>Property:</strong> @Model.Loadout.EquippedRing1.Property?.PropertyName</p>
+                    <p><strong>Location:</strong> @Model.Loadout.EquippedRing1.Location?.LocationName</p>
+                    <p><strong>Act:</strong> @Model.Loadout.EquippedRing1.Act?.ActName</p>
+                    <em>@Model.Loadout.EquippedRing1.Description?.Text</em>
+
+                    <form asp-action="UnequipItem" method="post">
+                        <input type="hidden" name="id" value="@Model.Loadout.EquippedRing1.Id" />
+                        <button type="submit" class="unequip-button">Unequip</button>
+                    </form>
+                </div>
+            }
+        </div>
+
+        <div class="equipment-wrapper ring2">
+            <div class="equipment-slot">
+                <img src="/images/ring.png" alt="Ring 2 icon" class="slot-icon" />
+                <div class="equipment-label">
+                    @Model.Loadout.EquippedRing2?.Name "Ring 2"
+                </div>
+            </div>
+            @if (Model.Loadout.EquippedRing2 != null)
+            {
+                <div class="equipment-popout">
+                    <h4>@Model.Loadout.EquippedRing2.Name</h4>
+                    <p><strong>Type:</strong> @Model.Loadout.EquippedRing2.Type?.TypeName</p>
+                    <p><strong>Rarity:</strong> @Model.Loadout.EquippedRing2.Rarity?.RarityName</p>
+                    <p><strong>Property:</strong> @Model.Loadout.EquippedRing2.Property?.PropertyName</p>
+                    <p><strong>Location:</strong> @Model.Loadout.EquippedRing2.Location?.LocationName</p>
+                    <p><strong>Act:</strong> @Model.Loadout.EquippedRing2.Act?.ActName</p>
+                    <em>@Model.Loadout.EquippedRing2.Description?.Text</em>
+
+                    <form asp-action="UnequipItem" method="post">
+                        <input type="hidden" name="id" value="@Model.Loadout.EquippedRing2.Id" />
+                        <button type="submit" class="unequip-button">Unequip</button>
+                    </form>
+                </div>
+            }
+        </div>
+
+        <div class="equipment-wrapper meleemainhand">
+            <div class="equipment-slot">
+                <img src="/images/shortsword.png" alt="Melee Mainhand icon" class="slot-icon" />
+                <div class="equipment-label">
+                    @Model.Loadout.EquippedMeleeMainhand?.Name "Melee Mainhand"
+                </div>
+            </div>
+            @if (Model.Loadout.EquippedMeleeMainhand != null)
+            {
+                <div class="equipment-popout">
+                    <h4>@Model.Loadout.EquippedMeleeMainhand.Name</h4>
+                    <p><strong>Type:</strong> @Model.Loadout.EquippedMeleeMainhand.Type?.TypeName</p>
+                    <p><strong>Rarity:</strong> @Model.Loadout.EquippedMeleeMainhand.Rarity?.RarityName</p>
+                    <p><strong>Property:</strong> @Model.Loadout.EquippedMeleeMainhand.Property?.PropertyName</p>
+                    <p><strong>Location:</strong> @Model.Loadout.EquippedMeleeMainhand.Location?.LocationName</p>
+                    <p><strong>Act:</strong> @Model.Loadout.EquippedMeleeMainhand.Act?.ActName</p>
+                    <em>@Model.Loadout.EquippedMeleeMainhand.Description?.Text</em>
+
+                    <form asp-action="UnequipItem" method="post">
+                        <input type="hidden" name="id" value="@Model.Loadout.EquippedMeleeMainhand.Id" />
+                        <button type="submit" class="unequip-button">Unequip</button>
+                    </form>
+                </div>
+            }
+        </div>
+
+        <div class="equipment-wrapper meleeoffhand">
+            <div class="equipment-slot">
+                <img src="/images/shortsword.png" alt="Melee Offhand icon" class="slot-icon" />
+                <div class="equipment-label">
+                    @Model.Loadout.EquippedMeleeOffhand?.Name "Melee Offhand"
+                </div>
+            </div>
+            @if (Model.Loadout.EquippedMeleeOffhand != null)
+            {
+                <div class="equipment-popout">
+                    <h4>@Model.Loadout.EquippedMeleeOffhand.Name</h4>
+                    <p><strong>Type:</strong> @Model.Loadout.EquippedMeleeOffhand.Type?.TypeName</p>
+                    <p><strong>Rarity:</strong> @Model.Loadout.EquippedMeleeOffhand.Rarity?.RarityName</p>
+                    <p><strong>Property:</strong> @Model.Loadout.EquippedMeleeOffhand.Property?.PropertyName</p>
+                    <p><strong>Location:</strong> @Model.Loadout.EquippedMeleeOffhand.Location?.LocationName</p>
+                    <p><strong>Act:</strong> @Model.Loadout.EquippedMeleeOffhand.Act?.ActName</p>
+                    <em>@Model.Loadout.EquippedMeleeOffhand.Description?.Text</em>
+
+                    <form asp-action="UnequipItem" method="post">
+                        <input type="hidden" name="id" value="@Model.Loadout.EquippedMeleeOffhand.Id" />
+                        <button type="submit" class="unequip-button">Unequip</button>
+                    </form>
+                </div>
+            }
+        </div>
+        
+        <div class="equipment-wrapper rangedmainhand">
+            <div class="equipment-slot">
+                <img src="/images/bow.png" alt="Ranged Mainhand icon" class="slot-icon" />
+                <div class="equipment-label">
+                    @Model.Loadout.EquippedRangedMainhand?.Name "Ranged Mainhand"
+                </div>
+            </div>
+            @if (Model.Loadout.EquippedRangedMainhand != null)
+            {
+                <div class="equipment-popout">
+                    <h4>@Model.Loadout.EquippedRangedMainhand.Name</h4>
+                    <p><strong>Type:</strong> @Model.Loadout.EquippedRangedMainhand.Type?.TypeName</p>
+                    <p><strong>Rarity:</strong> @Model.Loadout.EquippedRangedMainhand.Rarity?.RarityName</p>
+                    <p><strong>Property:</strong> @Model.Loadout.EquippedRangedMainhand.Property?.PropertyName</p>
+                    <p><strong>Location:</strong> @Model.Loadout.EquippedRangedMainhand.Location?.LocationName</p>
+                    <p><strong>Act:</strong> @Model.Loadout.EquippedRangedMainhand.Act?.ActName</p>
+                    <em>@Model.Loadout.EquippedRangedMainhand.Description?.Text</em>
+
+                    <form asp-action="UnequipItem" method="post">
+                        <input type="hidden" name="id" value="@Model.Loadout.EquippedRangedMainhand.Id" />
+                        <button type="submit" class="unequip-button">Unequip</button>
+                    </form>
+                </div>
+            }
+        </div>
+
+        <div class="equipment-wrapper rangedoffhand">
+            <div class="equipment-slot">
+                <img src="/images/bow.png" alt="Ranged Offhand icon" class="slot-icon" />
+                <div class="equipment-label">
+                    @Model.Loadout.EquippedRangedOffhand?.Name "Ranged Offhand"
+                </div>
+            </div>
+            @if (Model.Loadout.EquippedRangedOffhand != null)
+            {
+                <div class="equipment-popout">
+                    <h4>@Model.Loadout.EquippedRangedOffhand.Name</h4>
+                    <p><strong>Type:</strong> @Model.Loadout.EquippedRangedOffhand.Type?.TypeName</p>
+                    <p><strong>Rarity:</strong> @Model.Loadout.EquippedRangedOffhand.Rarity?.RarityName</p>
+                    <p><strong>Property:</strong> @Model.Loadout.EquippedRangedOffhand.Property?.PropertyName</p>
+                    <p><strong>Location:</strong> @Model.Loadout.EquippedRangedOffhand.Location?.LocationName</p>
+                    <p><strong>Act:</strong> @Model.Loadout.EquippedRangedOffhand.Act?.ActName</p>
+                    <em>@Model.Loadout.EquippedRangedOffhand.Description?.Text</em>
+
+                    <form asp-action="UnequipItem" method="post">
+                        <input type="hidden" name="id" value="@Model.Loadout.EquippedRangedOffhand.Id" />
+                        <button type="submit" class="unequip-button">Unequip</button>
+                    </form>
+                </div>
+            }
+        </div>
+        
+        
+        <!-- Wardrobe panel -->
+        <div class="wardrobe-panel">
+            <h3>🎒 Wardrobe</h3>
+            <div class="wardrobe-list">
+                @foreach (var item in Model.WardrobeItems)
+                {
+                    var rarityClass = item.Rarity?.RarityName?.ToLowerInvariant() switch
+                    {
+                        "common" => "rarity-common",
+                        "uncommon" => "rarity-uncommon",
+                        "rare" => "rarity-rare",
+                        "very rare" => "rarity-very-rare",
+                        "legendary" => "rarity-legendary",
+                        _ => ""
+                    };
+
+                    <div class="wardrobe-item @rarityClass">
+                        <h4>@item.Name</h4>
+                        <p><strong>Type:</strong> @item.Type?.TypeName</p>
+                        <p><strong>Rarity:</strong> @item.Rarity?.RarityName</p>
+
+                        <form asp-action="EquipItem" method="post">
+                            <input type="hidden" name="itemId" value="@item.Id" />
+                            <button type="submit">Equip</button>
+                        </form>
+
+                        <form asp-action="RemoveFromWardrobe" method="post">
+                            <input type="hidden" name="id" value="@item.Id" />
+                            <button type="submit">Remove</button>
+                        </form>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    </div>
+<!-- Adding a script for auto positioning of popouts -->
+@section Scripts {
+    <script>
+  document.querySelectorAll('.equipment-wrapper').forEach(wrapper => {
+    wrapper.addEventListener('mouseenter', function () {
+      const popout = wrapper.querySelector('.equipment-popout');
+      if (!popout) return;
+
+      const wrapperRect = wrapper.getBoundingClientRect();
+      const panelCenter = document.querySelector('.character-panel')?.getBoundingClientRect().left + 
+                          document.querySelector('.character-panel')?.getBoundingClientRect().width / 2;
+
+      const offset = 200;
+
+      popout.style.left = 'auto';
+      popout.style.right = 'auto';
+
+      if (wrapperRect.left < panelCenter) {
+        // Slot is on left side of panel → push popout to the left
+        popout.style.right = `${offset}px`;
+      } else {
+        // Slot is on middle or right side of panel → push popout to the right
+        popout.style.left = `${offset}px`;
+      }
+
+      popout.style.top = '0';
+    });
+  });
+  // Hover behavior with delay for showing/hiding popouts 
+  document.querySelectorAll('.equipment-wrapper').forEach(wrapper => {
+      let hideTimeout;
+
+      const popout = wrapper.querySelector('.equipment-popout');
+
+      wrapper.addEventListener('mouseenter', () => {
+          clearTimeout(hideTimeout);
+          if (popout) {
+              popout.style.opacity = '1';
+              popout.style.visibility = 'visible';
+              popout.style.pointerEvents = 'auto';
+          }
+      });
+
+      wrapper.addEventListener('mouseleave', () => {
+          hideTimeout = setTimeout(() => {
+              if (popout) {
+                  popout.style.opacity = '0';
+                  popout.style.visibility = 'hidden';
+                  popout.style.pointerEvents = 'none';
+              }
+          }, 300); // delay in milliseconds
+      });
+
+      if (popout) {
+          popout.addEventListener('mouseenter', () => {
+              clearTimeout(hideTimeout);
+          });
+
+          popout.addEventListener('mouseleave', () => {
+              hideTimeout = setTimeout(() => {
+                  popout.style.opacity = '0';
+                  popout.style.visibility = 'hidden';
+                  popout.style.pointerEvents = 'none';
+              }, 300);
+          });
+      }
+});
+</script>
+}
+

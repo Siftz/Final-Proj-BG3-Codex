@@ -1,0 +1,177 @@
+@model LogBg3Armory.Models.CharacterLoadoutViewModel
+
+<h2>🧙 Character Equipment</h2>
+<!-- unequip button for all items -->
+<form asp-action="UnequipAll" method="post">
+    <button type="submit">Unequip All</button>
+</form>
+
+<div class="equipment-ui">
+    <!-- Character silhouette panel -->
+    <div class="character-panel" style="background-image: url('/images/character-silhouette.png');">
+        <div class="equipment-slot helmet">
+            @if (Model.EquippedHelmet != null)
+            {
+                <div>@Model.EquippedHelmet.Name</div>
+                <form asp-action="UnequipItem" method="post"> <!-- Unequip button form, needed to add this to remove items -->
+                    <input type="hidden" name="id" value="@Model.EquippedHelmet.Id" />
+                    <button type="submit">Unequip</button>
+                </form>
+            }
+            else { <div>Helmet</div> }
+        </div>
+
+        <div class="equipment-slot armour">
+            @if (Model.EquippedArmour != null)
+            {
+                <div>@Model.EquippedArmour.Name</div>
+                <form asp-action="UnequipItem" method="post">
+                    <input type="hidden" name="id" value="@Model.EquippedArmour.Id" />
+                    <button type="submit">Unequip</button>
+                </form>
+            }
+            else { <div>Armour</div> }
+        </div>
+
+        <div class="equipment-slot gloves">
+            @if (Model.EquippedGloves != null)
+            {
+                <div>@Model.EquippedGloves.Name</div>
+                <form asp-action="UnequipItem" method="post">
+                    <input type="hidden" name="id" value="@Model.EquippedGloves.Id" />
+                    <button type="submit">Unequip</button>
+                </form>
+            }
+            else { <div>Gloves</div> }
+        </div>
+
+        <div class="equipment-slot cloak">
+            @if (Model.EquippedCloak != null)
+            {
+                <div>@Model.EquippedCloak.Name</div>
+                <form asp-action="UnequipItem" method="post">
+                    <input type="hidden" name="id" value="@Model.EquippedCloak.Id" />
+                    <button type="submit">Unequip</button>
+                </form>
+            }
+            else { <div>Cloak</div> }
+        </div>
+
+        <div class="equipment-slot boots">
+            @if (Model.EquippedBoots != null)
+            {
+                <div>@Model.EquippedBoots.Name</div>
+                <form asp-action="UnequipItem" method="post">
+                    <input type="hidden" name="id" value="@Model.EquippedBoots.Id" />
+                    <button type="submit">Unequip</button>
+                </form>
+            }
+            else { <div>Boots</div> }
+        </div>
+
+        <div class="equipment-slot amulet">
+            @if (Model.EquippedAmulet != null)
+            {
+                <div>@Model.EquippedAmulet.Name</div>
+                <form asp-action="UnequipItem" method="post">
+                    <input type="hidden" name="id" value="@Model.EquippedAmulet.Id" />
+                    <button type="submit">Unequip</button>
+                </form>
+            }
+            else { <div>Amulet</div> }
+        </div>
+
+        <div class="equipment-slot ring1">
+            @if (Model.EquippedRing1 != null)
+            {
+                <div>@Model.EquippedRing1.Name</div>
+                <form asp-action="UnequipItem" method="post">
+                    <input type="hidden" name="id" value="@Model.EquippedRing1.Id" />
+                    <button type="submit">Unequip</button>
+                </form>
+            }
+            else { <div>Ring 1</div> }
+        </div>
+
+        <div class="equipment-slot ring2">
+            @if (Model.EquippedRing2 != null)
+            {
+                <div>@Model.EquippedRing2.Name</div>
+                <form asp-action="UnequipItem" method="post">
+                    <input type="hidden" name="id" value="@Model.EquippedRing2.Id" />
+                    <button type="submit">Unequip</button>
+                </form>
+            }
+            else { <div>Ring 2</div> }
+        </div>
+
+        <div class="equipment-slot meleemainhand">
+            @if (Model.EquippedMeleeMainhand != null)
+            {
+                <div>@Model.EquippedMeleeMainhand.Name</div>
+                <form asp-action="UnequipItem" method="post">
+                    <input type="hidden" name="id" value="@Model.EquippedMeleeMainhand.Id" />
+                    <button type="submit">Unequip</button>
+                </form>
+            }
+            else { <div>Melee Mainhand</div> }
+        </div>
+
+        <div class="equipment-slot meleeoffhand">
+            @if (Model.EquippedMeleeOffhand != null)
+            {
+                <div>@Model.EquippedMeleeOffhand.Name</div>
+                <form asp-action="UnequipItem" method="post">
+                    <input type="hidden" name="id" value="@Model.EquippedMeleeOffhand.Id" />
+                    <button type="submit">Unequip</button>
+                </form>
+            }
+            else { <div>Melee Offhand</div> }
+        </div>
+
+        <div class="equipment-slot rangedmainhand">
+            @if (Model.EquippedRangedMainhand != null)
+            {
+                <div>@Model.EquippedRangedMainhand.Name</div>
+                <form asp-action="UnequipItem" method="post">
+                    <input type="hidden" name="id" value="@Model.EquippedRangedMainhand.Id" />
+                    <button type="submit">Unequip</button>
+                </form>
+            }
+            else { <div>Ranged Mainhand</div> }
+        </div>
+
+        <div class="equipment-slot rangedoffhand">
+            @if (Model.EquippedRangedOffhand != null)
+            {
+                <div>@Model.EquippedRangedOffhand.Name</div>
+                <form asp-action="UnequipItem" method="post">
+                    <input type="hidden" name="id" value="@Model.EquippedRangedOffhand.Id" />
+                    <button type="submit">Unequip</button>
+                </form>
+            }
+            else { <div>Ranged Offhand</div> }
+        </div>
+    </div>
+
+    <!-- Wardrobe panel -->
+    <div class="wardrobe-panel">
+        <h3>🎒 Wardrobe</h3>
+        <div class="codex-list">
+            @foreach (var item in Model.WardrobeItems)
+            {
+                <div class="codex-entry">
+                    <h4>@item.Name</h4>
+                    <p><strong>Type:</strong> @item.Type?.TypeName</p>
+                    <p><strong>Rarity:</strong> @item.Rarity?.RarityName</p>
+                    <p><em>@item.Description?.Text</em></p>
+
+                    <form asp-action="EquipItem" method="post">
+                        <input type="hidden" name="itemId" value="@item.Id" />
+                        <button type="submit">Equip</button>
+                    </form>
+                </div>
+            }
+        </div>
+    </div>
+</div>

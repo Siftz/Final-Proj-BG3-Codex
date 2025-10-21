@@ -8,7 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-// ✅ Inject MySQL connection + your repository
+builder.Services.AddSession(); // Enables session storage
+
+//  Inject MySQL connection +  repository
 builder.Services.AddTransient<IDbConnection>(sp =>
     new MySqlConnection(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<ItemRepository>();
@@ -19,16 +21,17 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    app.UseHsts(); // You can adjust HSTS for production
+    app.UseHsts(); //  can adjust HSTS for production
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles(); // ✅ This replaces .MapStaticAssets()
+app.UseStaticFiles(); //  This replaces .MapStaticAssets()
 
 app.UseRouting();
+app.UseSession(); // Activates session handling
 app.UseAuthorization();
 
-// ✅ Point default route to ItemController
+//  Point default route to ItemController
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Item}/{action=Index}/{id?}");

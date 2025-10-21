@@ -128,4 +128,5 @@ C:\Users\lakin\repos\LogBg3Armory\LogBg3Armory\obj\Debug\net9.0\refint\LogBg3Arm
 C:\Users\lakin\repos\LogBg3Armory\LogBg3Armory\obj\Debug\net9.0\LogBg3Armory.pdb
 C:\Users\lakin\repos\LogBg3Armory\LogBg3Armory\obj\Debug\net9.0\LogBg3Armory.genruntimeconfig.cache
 C:\Users\lakin\repos\LogBg3Armory\LogBg3Armory\obj\Debug\net9.0\ref\LogBg3Armory.dll
-C:\Users\lakin\repos\LogBg3Armory\LogBg3Armory\obj\Debug\net9.0\compressed\9klgeuupz0-3mdp7spl08.gz
+C:\Users\lakin\repos\LogBg3Armory\LogBg3Armory\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\lakin\repos\LogBg3Armory\LogBg3Armory\obj\Debug\net9.0\compressed\9klgeuupz0-8ekcpg3vgv.gz

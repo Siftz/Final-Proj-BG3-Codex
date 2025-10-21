@@ -28,8 +28,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/lakin/repos/LogBg3Armory/LogBg3Armory/Views/Item/Equipment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXRlbVxFcXVpcG1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/lakin/repos/LogBg3Armory/LogBg3Armory/Views/Item/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXRlbVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lakin/repos/LogBg3Armory/LogBg3Armory/Views/Item/Loadout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXRlbVxMb2Fkb3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lakin/repos/LogBg3Armory/LogBg3Armory/Views/Item/Wardrobe.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSXRlbVxXYXJkcm9iZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/lakin/repos/LogBg3Armory/LogBg3Armory/Views/Shared/Error.cshtml]

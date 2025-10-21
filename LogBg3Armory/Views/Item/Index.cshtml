@@ -24,7 +24,6 @@
             "legendary" => "rarity-legendary",
             _ => ""
         };
-
         <div class="codex-entry @rarityClass">
             <h3>@item.Name</h3>
             <p><strong>Type:</strong> @item.Type?.TypeName</p>
@@ -32,8 +31,63 @@
             <p><strong>Property:</strong> @item.Property?.PropertyName</p>
             <p><strong>Location:</strong> @item.Location?.LocationName</p>
             <p><strong>Act:</strong> @item.Act?.ActName</p>
-            <p><em>@item.Description?.Text</em></p>
-            <button>Add to Wardrobe</button>
+
+            @* <div class="codex-description-hidden">
+                    <em>@item.Description?.Text</em>
+                </div> 
+
+            <form asp-action="AddToWardrobe" method="post">
+                <input type="hidden" name="id" value="@item.Id" />
+                <button type="submit">Add to Wardrobe</button>
+            </form> *@
+
+            <!-- 🔥 Hover popout -->
+            <div class="codex-popout">
+                <h3>@item.Name</h3>
+                <p><strong>Type:</strong> @item.Type?.TypeName</p>
+                <p><strong>Rarity:</strong> @item.Rarity?.RarityName</p>
+                <p><strong>Property:</strong> @item.Property?.PropertyName</p>
+                <p><strong>Location:</strong> @item.Location?.LocationName</p>
+                <p><strong>Act:</strong> @item.Act?.ActName</p>
+                <em>@item.Description?.Text</em>
+                <form asp-action="AddToWardrobe" method="post">
+                    <input type="hidden" name="id" value="@item.Id" />
+                    <button type="submit">Add to Wardrobe</button>
+                </form>
+            </div>
         </div>
+        
     }
 </div>
+
+
+@section Scripts {
+    <script>
+  document.querySelectorAll('.codex-entry').forEach(entry => {
+    entry.addEventListener('click', function (e) {
+      // Remove 'clicked' from all entries except this one
+      document.querySelectorAll('.codex-entry.clicked').forEach(el => {
+        if (el !== entry) el.classList.remove('clicked');
+      });
+
+      // Toggle clicked state
+      entry.classList.toggle('clicked');
+      e.stopPropagation();
+    });
+  });
+
+  // Prevent closing when clicking inside the popout
+  document.querySelectorAll('.codex-popout').forEach(popout => {
+    popout.addEventListener('click', function (e) {
+      e.stopPropagation();
+    });
+  });
+
+  // Click anywhere else to close all popouts
+  document.addEventListener('click', function () {
+    document.querySelectorAll('.codex-entry.clicked').forEach(el => {
+      el.classList.remove('clicked');
+    });
+  });
+</script>
+}

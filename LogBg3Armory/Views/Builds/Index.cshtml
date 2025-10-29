@@ -1,0 +1,16 @@
+@model List<ClassBuildSummary>
+@{
+    ViewData["Title"] = "Builds";
+}
+
+<h2>Select a Class Build</h2>
+
+<div class="class-grid">
+    @foreach (var build in Model)
+    {
+        <a href="@Url.Action("Details", "Builds", new { className = build.ClassName })" class="class-icon">
+            <img src="@build.IconUrl" alt="@build.ClassName icon" />
+            <span>@build.ClassName</span>
+        </a>
+    }
+</div>

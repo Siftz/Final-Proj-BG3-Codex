@@ -429,6 +429,34 @@ form[action="/Item/UnequipAll"] button {
   padding: 0.3rem;
   font-size: 0.8rem;
 }
+
+/* BUILD GUIDES PAGE STYLES */
+.build-guide-list {
+  list-style: none;
+  padding: 0;
+  font-family: 'Cinzel Decorative', cursive;
+}
+
+.build-guide-list li {
+  margin-bottom: 0.5rem;
+}
+
+.build-guide-list a {
+  color: #f6d900;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.build-guide-list a:hover {
+  text-decoration: underline;
+  color: #ff6f91;
+}
+
+
+
+
+
+
 /*footer flex box*/
 html, body {
   height: 100%;

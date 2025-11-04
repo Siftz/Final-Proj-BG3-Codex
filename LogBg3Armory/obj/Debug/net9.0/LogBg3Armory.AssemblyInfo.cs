@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LogBg3Armory")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b23a1e4b6bca9354b738f9c19d3382a6c80235c3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c176037fc8ce27d17b8bef3f542af9e351895c00")]
 [assembly: System.Reflection.AssemblyProductAttribute("LogBg3Armory")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LogBg3Armory")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

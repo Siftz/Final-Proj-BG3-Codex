@@ -90,6 +90,20 @@ namespace LogBg3Armory.Controllers
 
             return View(model); // Razor view must be named Loadout.cshtml
         }
+        // Build Guides View
+        public IActionResult BuildGuides()
+        {
+            return View("~/Views/Item/BuildGuides/BuildGuides.cshtml");
+        }
+
+        public IActionResult CosmicHorror()
+        {
+            return View("~/Views/Item/BuildGuides/Builds/CosmicHorror.cshtml");
+        }
+        public IActionResult TavernBrawler()
+        {
+            return View("~/Views/Item/BuildGuides/Builds/TavernBrawler.cshtml");
+        }
 
 
         // Removes item from wardrobe

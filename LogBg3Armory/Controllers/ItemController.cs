@@ -104,6 +104,10 @@ namespace LogBg3Armory.Controllers
         {
             return View("~/Views/Item/BuildGuides/Builds/TavernBrawler.cshtml");
         }
+        public IActionResult DrunkenThunderGod()
+        {
+            return View("~/Views/Item/BuildGuides/Builds/DrunkenThunderGod.cshtml");
+        }
 
 
         // Removes item from wardrobe

@@ -108,6 +108,10 @@ namespace LogBg3Armory.Controllers
         {
             return View("~/Views/Item/BuildGuides/Builds/DrunkenThunderGod.cshtml");
         }
+        public IActionResult JackOfAllTrades()
+        {
+            return View("~/Views/Item/BuildGuides/Builds/JackOfAllTrades.cshtml");
+        }
 
 
         // Removes item from wardrobe

@@ -31,6 +31,11 @@ app.UseRouting();
 app.UseSession(); // Activates session handling
 app.UseAuthorization();
 
+app.MapControllerRoute(
+    name: "welcome",
+    pattern: "",
+    defaults: new { controller = "Item", action = "Welcome" }
+);
 //  Point default route to ItemController
 app.MapControllerRoute(
     name: "default",

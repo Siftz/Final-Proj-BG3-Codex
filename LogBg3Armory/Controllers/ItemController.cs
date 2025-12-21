@@ -112,6 +112,11 @@ namespace LogBg3Armory.Controllers
         {
             return View("~/Views/Item/BuildGuides/Builds/JackOfAllTrades.cshtml");
         }
+        public IActionResult BeastmasterRanger()
+        {
+            return View("~/Views/Item/BuildGuides/Builds/BeastmasterRanger.cshtml");
+        }
+        
 
 
         // Removes item from wardrobe

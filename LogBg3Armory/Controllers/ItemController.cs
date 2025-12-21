@@ -194,34 +194,60 @@ namespace LogBg3Armory.Controllers
         [HttpPost]
 
         // Normalize item slots, this adds the subcategory logic so items are placed correctly (items were not being added correctly without this)
+        // Normalize item slots, this adds the subcategory logic so items are placed correctly
         private string NormalizeSlot(string rawType)
         {
             if (string.IsNullOrWhiteSpace(rawType)) return null;
 
             var type = rawType.ToLowerInvariant();
 
+            // Armor/accessories
             if (type.Contains("helmet")) return "helmet";
             if (type.Contains("glove")) return "gloves";
             if (type.Contains("cloak")) return "cloak";
             if (type.Contains("boot")) return "boots";
             if (type.Contains("amulet")) return "amulet";
             if (type.Contains("ring")) return "ring";
-
             if (type.Contains("armour") || type.Contains("clothing")) return "armour";
 
+            // Shields / offhand
             if (type.Contains("shield") || type.Contains("offhand")) return "melee offhand";
 
-            if (type.Contains("longsword") || type.Contains("mace") || type.Contains("battleaxe") ||
-                type.Contains("warhammer") || type.Contains("club") || type.Contains("flail") ||
-                type.Contains("maul") || type.Contains("handaxe") || type.Contains("sickle") ||
-                type.Contains("greatclub") || type.Contains("morningstar") || type.Contains("rapier") ||
-                type.Contains("scimitar") || type.Contains("dagger") || type.Contains("halberd") ||
-                type.Contains("glaive") || type.Contains("pike") || type.Contains("spear") ||
-                type.Contains("quarterstaff")) return "melee";
+            // Melee weapons (1H + 2H)
+            if (type.Contains("longsword") ||
+                type.Contains("mace") ||
+                type.Contains("battleaxe") ||
+                type.Contains("warhammer") ||
+                type.Contains("club") ||
+                type.Contains("flail") ||
+                type.Contains("maul") ||
+                type.Contains("handaxe") ||
+                type.Contains("sickle") ||
+                type.Contains("greatclub") ||
+                type.Contains("morningstar") ||
+                type.Contains("rapier") ||
+                type.Contains("scimitar") ||
+                type.Contains("dagger") ||
+                type.Contains("halberd") ||
+                type.Contains("glaive") ||
+                type.Contains("pike") ||
+                type.Contains("spear") ||
+                type.Contains("quarterstaff") ||
+                type.Contains("greataxe"))      // ✅ THIS LINE IS THE IMPORTANT ONE
+            {
+                return "melee";
+            }
 
-            if (type.Contains("bow") || type.Contains("crossbow") || type.Contains("longbow") ||
-                type.Contains("shortbow") || type.Contains("hand crossbow") ||
-                type.Contains("heavy crossbow")) return "ranged";
+            // Ranged weapons
+            if (type.Contains("bow") ||
+                type.Contains("crossbow") ||
+                type.Contains("longbow") ||
+                type.Contains("shortbow") ||
+                type.Contains("hand crossbow") ||
+                type.Contains("heavy crossbow"))
+            {
+                return "ranged";
+            }
 
             return null;
         }

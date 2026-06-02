@@ -17,6 +17,8 @@ namespace LogBg3Armory.Controllers
 
              return View(items);
          }*/
+        
+        // Displays all items with optional search
         public IActionResult Index(string search)
         {
             var items = repo.GetAllItems();
@@ -194,7 +196,7 @@ namespace LogBg3Armory.Controllers
         [HttpPost]
 
         // Normalize item slots, this adds the subcategory logic so items are placed correctly (items were not being added correctly without this)
-        // Normalize item slots, this adds the subcategory logic so items are placed correctly
+        
         private string NormalizeSlot(string rawType)
         {
             if (string.IsNullOrWhiteSpace(rawType)) return null;
@@ -233,7 +235,7 @@ namespace LogBg3Armory.Controllers
                 type.Contains("pike") ||
                 type.Contains("spear") ||
                 type.Contains("quarterstaff") ||
-                type.Contains("greataxe"))      // ✅ THIS LINE IS THE IMPORTANT ONE
+                type.Contains("greataxe"))      //  missed greataxe prior caused bugs for some weapons
             {
                 return "melee";
             }
@@ -314,7 +316,7 @@ namespace LogBg3Armory.Controllers
                 case "ranged":
                     if (isTwoHanded)
                     {
-                        loadout.EquippedRangedMainhand = item;
+                        loadout.EquippedRangedMainhand = item;                                                   
                         loadout.EquippedRangedOffhand = item;
                     }
                     else if (loadout.EquippedRangedMainhand == null)

@@ -1,6 +1,6 @@
 using System.Data;
 using LogBg3Armory.Models;
-
+// First step 
 namespace LogBg3Armory.Repositories
 {
     public class ItemRepository

@@ -8,17 +8,38 @@
 
 <div class="equipment-ui">
     <!-- Character silhouette panel -->
+    <!-- 
+    Background silhouette is used as the anchor for positioning equipment slots.
+    Each slot is absolutely positioned via CSS relative to this container.
+    -->
+
     <div class="character-panel" style="background-image: url('/images/character-silhouette.png');">
+        <!-- 
+        Each equipment slot follows the same pattern:
+        - If an item is equipped it shows its name + unequip button
+        - If empty it shows placeholder text
+        - The controller handles the actual equip/unequip logic via session
+        -->
+
         <div class="equipment-slot helmet">
             @if (Model.EquippedHelmet != null)
             {
                 <div>@Model.EquippedHelmet.Name</div>
+                <!-- 
+                Unequip form.
+                Posts the item ID to ItemController.UnequipItem(id),
+                which removes the item from whichever slot it occupies.
+                -->
+
                 <form asp-action="UnequipItem" method="post"> <!-- Unequip button form, needed to add this to remove items -->
-                    <input type="hidden" name="id" value="@Model.EquippedHelmet.Id" />
+                    <input type="hidden" name="id" value="@Model.EquippedHelmet.Id"/>
                     <button type="submit">Unequip</button>
                 </form>
             }
-            else { <div>Helmet</div> }
+            else
+            {
+                <div>Helmet</div> <!-- Placeholder text when no item is equipped -->
+            }
         </div>
 
         <div class="equipment-slot armour">
@@ -26,11 +47,14 @@
             {
                 <div>@Model.EquippedArmour.Name</div>
                 <form asp-action="UnequipItem" method="post">
-                    <input type="hidden" name="id" value="@Model.EquippedArmour.Id" />
+                    <input type="hidden" name="id" value="@Model.EquippedArmour.Id"/>
                     <button type="submit">Unequip</button>
                 </form>
             }
-            else { <div>Armour</div> }
+            else
+            {
+                <div>Armour</div>
+            }
         </div>
 
         <div class="equipment-slot gloves">
@@ -38,11 +62,14 @@
             {
                 <div>@Model.EquippedGloves.Name</div>
                 <form asp-action="UnequipItem" method="post">
-                    <input type="hidden" name="id" value="@Model.EquippedGloves.Id" />
+                    <input type="hidden" name="id" value="@Model.EquippedGloves.Id"/>
                     <button type="submit">Unequip</button>
                 </form>
             }
-            else { <div>Gloves</div> }
+            else
+            {
+                <div>Gloves</div>
+            }
         </div>
 
         <div class="equipment-slot cloak">
@@ -50,11 +77,14 @@
             {
                 <div>@Model.EquippedCloak.Name</div>
                 <form asp-action="UnequipItem" method="post">
-                    <input type="hidden" name="id" value="@Model.EquippedCloak.Id" />
+                    <input type="hidden" name="id" value="@Model.EquippedCloak.Id"/>
                     <button type="submit">Unequip</button>
                 </form>
             }
-            else { <div>Cloak</div> }
+            else
+            {
+                <div>Cloak</div>
+            }
         </div>
 
         <div class="equipment-slot boots">
@@ -62,11 +92,14 @@
             {
                 <div>@Model.EquippedBoots.Name</div>
                 <form asp-action="UnequipItem" method="post">
-                    <input type="hidden" name="id" value="@Model.EquippedBoots.Id" />
+                    <input type="hidden" name="id" value="@Model.EquippedBoots.Id"/>
                     <button type="submit">Unequip</button>
                 </form>
             }
-            else { <div>Boots</div> }
+            else
+            {
+                <div>Boots</div>
+            }
         </div>
 
         <div class="equipment-slot amulet">
@@ -74,11 +107,14 @@
             {
                 <div>@Model.EquippedAmulet.Name</div>
                 <form asp-action="UnequipItem" method="post">
-                    <input type="hidden" name="id" value="@Model.EquippedAmulet.Id" />
+                    <input type="hidden" name="id" value="@Model.EquippedAmulet.Id"/>
                     <button type="submit">Unequip</button>
                 </form>
             }
-            else { <div>Amulet</div> }
+            else
+            {
+                <div>Amulet</div>
+            }
         </div>
 
         <div class="equipment-slot ring1">
@@ -86,11 +122,14 @@
             {
                 <div>@Model.EquippedRing1.Name</div>
                 <form asp-action="UnequipItem" method="post">
-                    <input type="hidden" name="id" value="@Model.EquippedRing1.Id" />
+                    <input type="hidden" name="id" value="@Model.EquippedRing1.Id"/>
                     <button type="submit">Unequip</button>
                 </form>
             }
-            else { <div>Ring 1</div> }
+            else
+            {
+                <div>Ring 1</div>
+            }
         </div>
 
         <div class="equipment-slot ring2">
@@ -98,11 +137,14 @@
             {
                 <div>@Model.EquippedRing2.Name</div>
                 <form asp-action="UnequipItem" method="post">
-                    <input type="hidden" name="id" value="@Model.EquippedRing2.Id" />
+                    <input type="hidden" name="id" value="@Model.EquippedRing2.Id"/>
                     <button type="submit">Unequip</button>
                 </form>
             }
-            else { <div>Ring 2</div> }
+            else
+            {
+                <div>Ring 2</div>
+            }
         </div>
 
         <div class="equipment-slot meleemainhand">
@@ -110,11 +152,14 @@
             {
                 <div>@Model.EquippedMeleeMainhand.Name</div>
                 <form asp-action="UnequipItem" method="post">
-                    <input type="hidden" name="id" value="@Model.EquippedMeleeMainhand.Id" />
+                    <input type="hidden" name="id" value="@Model.EquippedMeleeMainhand.Id"/>
                     <button type="submit">Unequip</button>
                 </form>
             }
-            else { <div>Melee Mainhand</div> }
+            else
+            {
+                <div>Melee Mainhand</div>
+            }
         </div>
 
         <div class="equipment-slot meleeoffhand">
@@ -122,11 +167,14 @@
             {
                 <div>@Model.EquippedMeleeOffhand.Name</div>
                 <form asp-action="UnequipItem" method="post">
-                    <input type="hidden" name="id" value="@Model.EquippedMeleeOffhand.Id" />
+                    <input type="hidden" name="id" value="@Model.EquippedMeleeOffhand.Id"/>
                     <button type="submit">Unequip</button>
                 </form>
             }
-            else { <div>Melee Offhand</div> }
+            else
+            {
+                <div>Melee Offhand</div>
+            }
         </div>
 
         <div class="equipment-slot rangedmainhand">
@@ -134,11 +182,14 @@
             {
                 <div>@Model.EquippedRangedMainhand.Name</div>
                 <form asp-action="UnequipItem" method="post">
-                    <input type="hidden" name="id" value="@Model.EquippedRangedMainhand.Id" />
+                    <input type="hidden" name="id" value="@Model.EquippedRangedMainhand.Id"/>
                     <button type="submit">Unequip</button>
                 </form>
             }
-            else { <div>Ranged Mainhand</div> }
+            else
+            {
+                <div>Ranged Mainhand</div>
+            }
         </div>
 
         <div class="equipment-slot rangedoffhand">
@@ -146,11 +197,14 @@
             {
                 <div>@Model.EquippedRangedOffhand.Name</div>
                 <form asp-action="UnequipItem" method="post">
-                    <input type="hidden" name="id" value="@Model.EquippedRangedOffhand.Id" />
+                    <input type="hidden" name="id" value="@Model.EquippedRangedOffhand.Id"/>
                     <button type="submit">Unequip</button>
                 </form>
             }
-            else { <div>Ranged Offhand</div> }
+            else
+            {
+                <div>Ranged Offhand</div>
+            }
         </div>
     </div>
 

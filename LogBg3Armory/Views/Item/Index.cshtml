@@ -15,6 +15,7 @@
 <div class="codex-list">
     @foreach (var item in Model)
     {
+        // Determine rarity class for styling and color-coding
         var rarityClass = item.Rarity?.RarityName?.ToLowerInvariant() switch
         {
             "common" => "rarity-common",
@@ -24,6 +25,12 @@
             "legendary" => "rarity-legendary",
             _ => ""
         };
+        <!-- 
+        Codex entry card.
+        Displays basic item info and contains a hidden hover popout.
+        Rarity class applies color borders/backgrounds.
+        -->
+
         <div class="codex-entry @rarityClass">
             <h3>@item.Name</h3>
             <p><strong>Type:</strong> @item.Type?.TypeName</p>
@@ -41,7 +48,13 @@
                 <button type="submit">Add to Wardrobe</button>
             </form> *@
 
-            <!-- 🔥 Hover popout -->
+            
+            <!--Hover popout.
+            This is revealed via CSS/JS when the user hovers over the codex-entry.
+            Contains full item details + Add to Wardrobe button.
+            Mirrors the BG3 tooltip/codex behavior.
+            -->
+
             <div class="codex-popout">
                 <h3>@item.Name</h3>
                 <p><strong>Type:</strong> @item.Type?.TypeName</p>
@@ -49,7 +62,10 @@
                 <p><strong>Property:</strong> @item.Property?.PropertyName</p>
                 <p><strong>Location:</strong> @item.Location?.LocationName</p>
                 <p><strong>Act:</strong> @item.Act?.ActName</p>
+                <!-- Full item description -->
+
                 <em>@item.Description?.Text</em>
+                <!-- Add to Wardrobe button -->
                 <form asp-action="AddToWardrobe" method="post">
                     <input type="hidden" name="id" value="@item.Id" />
                     <button type="submit">Add to Wardrobe</button>

@@ -1,4 +1,4 @@
-@model IEnumerable<LogBg3Armory.Models.Item>
+@model IEnumerable<Item>
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -8,7 +8,7 @@
 <h2>🧙 BG3 Armory</h2>
 
 <form method="get">
-    <input type="text" name="search" placeholder="Search items..." />
+    <input type="text" name="search" placeholder="Search items..."/>
     <button type="submit">Search</button>
 </form>
 
@@ -48,7 +48,7 @@
                 <button type="submit">Add to Wardrobe</button>
             </form> *@
 
-            
+
             <!--Hover popout.
             This is revealed via CSS/JS when the user hovers over the codex-entry.
             Contains full item details + Add to Wardrobe button.
@@ -67,43 +67,42 @@
                 <em>@item.Description?.Text</em>
                 <!-- Add to Wardrobe button -->
                 <form asp-action="AddToWardrobe" method="post">
-                    <input type="hidden" name="id" value="@item.Id" />
+                    <input type="hidden" name="id" value="@item.Id"/>
                     <button type="submit">Add to Wardrobe</button>
                 </form>
             </div>
         </div>
-        
     }
 </div>
 
 
 @section Scripts {
     <script>
-  document.querySelectorAll('.codex-entry').forEach(entry => {
-    entry.addEventListener('click', function (e) {
-      // Remove 'clicked' from all entries except this one
-      document.querySelectorAll('.codex-entry.clicked').forEach(el => {
-        if (el !== entry) el.classList.remove('clicked');
-      });
+        document.querySelectorAll('.codex-entry').forEach(entry => {
+            entry.addEventListener('click', function (e) {
+                // Remove 'clicked' from all entries except this one
+                document.querySelectorAll('.codex-entry.clicked').forEach(el => {
+                    if (el !== entry) el.classList.remove('clicked');
+                });
 
-      // Toggle clicked state
-      entry.classList.toggle('clicked');
-      e.stopPropagation();
-    });
-  });
+                // Toggle clicked state
+                entry.classList.toggle('clicked');
+                e.stopPropagation();
+            });
+        });
 
-  // Prevent closing when clicking inside the popout
-  document.querySelectorAll('.codex-popout').forEach(popout => {
-    popout.addEventListener('click', function (e) {
-      e.stopPropagation();
-    });
-  });
+        // Prevent closing when clicking inside the popout
+        document.querySelectorAll('.codex-popout').forEach(popout => {
+            popout.addEventListener('click', function (e) {
+                e.stopPropagation();
+            });
+        });
 
-  // Click anywhere else to close all popouts
-  document.addEventListener('click', function () {
-    document.querySelectorAll('.codex-entry.clicked').forEach(el => {
-      el.classList.remove('clicked');
-    });
-  });
-</script>
+        // Click anywhere else to close all popouts
+        document.addEventListener('click', function () {
+            document.querySelectorAll('.codex-entry.clicked').forEach(el => {
+                el.classList.remove('clicked');
+            });
+        });
+    </script>
 }

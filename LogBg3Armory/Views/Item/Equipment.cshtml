@@ -1,4 +1,4 @@
-@model LogBg3Armory.Models.CharacterLoadoutViewModel
+@model CharacterLoadoutViewModel
 
 <h2>🧙 Character Equipment</h2>
 <!-- unequip button for all items -->
@@ -31,14 +31,16 @@
                 which removes the item from whichever slot it occupies.
                 -->
 
-                <form asp-action="UnequipItem" method="post"> <!-- Unequip button form, needed to add this to remove items -->
+                <form asp-action="UnequipItem" method="post">
+                    <!-- Unequip button form, needed to add this to remove items -->
                     <input type="hidden" name="id" value="@Model.EquippedHelmet.Id"/>
                     <button type="submit">Unequip</button>
                 </form>
             }
             else
             {
-                <div>Helmet</div> <!-- Placeholder text when no item is equipped -->
+                <div>Helmet</div>
+                <!-- Placeholder text when no item is equipped -->
             }
         </div>
 
@@ -221,7 +223,7 @@
                     <p><em>@item.Description?.Text</em></p>
 
                     <form asp-action="EquipItem" method="post">
-                        <input type="hidden" name="itemId" value="@item.Id" />
+                        <input type="hidden" name="itemId" value="@item.Id"/>
                         <button type="submit">Equip</button>
                     </form>
                 </div>

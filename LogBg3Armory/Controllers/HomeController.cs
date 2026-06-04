@@ -1,6 +1,6 @@
 using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
 using LogBg3Armory.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LogBg3Armory.Controllers;
 
@@ -28,6 +28,7 @@ public class HomeController : Controller
     {
         return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
     }
+
     public IActionResult Welcome()
     {
         return View("~/Views/Home/Welcome.cshtml");

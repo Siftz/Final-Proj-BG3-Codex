@@ -1,5 +1,5 @@
 wardrobe
-@model LogBg3Armory.Models.WardrobeViewModel
+@model WardrobeViewModel
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -46,12 +46,12 @@ else
 
                 <!-- Image Placeholder -->
                 <div class="item-image-placeholder">
-                    <img src="~/images/placeholder.png" alt="Image for @item.Name" class="img-fluid" />
+                    <img src="~/images/placeholder.png" alt="Image for @item.Name" class="img-fluid"/>
                 </div>
 
                 <!-- Remove from wardrobe button -->
                 <form asp-action="RemoveFromWardrobe" method="post">
-                    <input type="hidden" name="id" value="@item.Id" />
+                    <input type="hidden" name="id" value="@item.Id"/>
                     <button type="submit">Remove from Wardrobe</button>
                 </form>
             </div>

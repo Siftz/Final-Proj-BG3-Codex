@@ -1,5 +1,4 @@
 using System.Data;
-using LogBg3Armory.Models;
 using LogBg3Armory.Repositories;
 using MySql.Data.MySqlClient;
 
@@ -32,13 +31,13 @@ app.UseSession(); // Activates session handling
 app.UseAuthorization();
 
 app.MapControllerRoute(
-    name: "welcome",
-    pattern: "",
-    defaults: new { controller = "Item", action = "Welcome" }
+    "welcome",
+    "",
+    new { controller = "Item", action = "Welcome" }
 );
 //  Point default route to ItemController
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Item}/{action=Index}/{id?}");
+    "default",
+    "{controller=Item}/{action=Index}/{id?}");
 
 app.Run();
